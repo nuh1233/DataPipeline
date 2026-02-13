@@ -1,0 +1,71 @@
+{
+  "nyc_buildings": {
+    "input_file": "Nyc_data.csv",
+    "output_file": "Building_type_filtered_nyc_data.csv",
+    "output_dir": "output/nyc_green_data",
+    "primary_column": "City",
+    "sub_columns": ["Postal Code"],
+    "sort_order": ["Manhattan", "Bronx", "Brooklyn", "New York", "Queens", "Jamaica", "Long Island", "Astoria"],
+    "filter_column": "Primary Property Type - Self Selected",
+    "filter_values": ["Parking"],
+    "show_stats": true
+  },
+  "nyc_no_parking_storage": {
+    "input_file": "Nyc_data.csv",
+    "output_file": "No_parking_or_storage.csv",
+    "output_dir": "output/nyc_green_data",
+    "primary_column": "City",
+    "sub_columns": ["Postal Code"],
+    "filter_column": "Primary Property Type - Self Selected",
+    "filter_values": ["Parking", "Storage"],
+    "show_stats": false
+  },
+  
+    "nyc_multifamily_only": {
+    "input_file": "Nyc_data.csv",
+    "output_file": "Multifamily_only.csv",
+    "output_dir": "output/nyc_green_data",
+    "primary_column": "City",
+    "sub_columns": ["Postal Code"],
+    "keep_column": "Primary Property Type - Self Selected",
+    "keep_values": ["Multifamily Housing", "Office"],
+    "show_stats": true
+  },
+  "property_types_only": {
+    "input_file": "Building_type_filtered_nyc_data.csv",
+    "output_file": "Property_types_filtered.csv",
+    "output_dir": "output/nyc_green_data",
+    "keep_column": "Largest Property Use Type",
+    "keep_values": ["Multifamily Housing", "College/University", "Office", "Hotel", "K-12 School", "Enclosed Mall"],
+    "show_stats": true
+
+  },
+  "property_types_parquet": {
+    "input_file": "Nyc_data.csv",
+    "output_file": "Property_types_filtered.parquet",
+    "output_dir": "output/nyc_green_data",
+    "compression": "snappy",
+    "primary_column": "Largest Property Use Type",
+    "keep_column": "Largest Property Use Type",
+    "keep_values": ["Multifamily Housing", "College/University", "Office", "Hotel", "K-12 School", "Enclosed Mall"],
+    "show_stats": true
+  },
+  "property_types_csv": {
+    "input_file": "Nyc_data.csv",
+    "output_file": "Property_types_filtered.csv",
+    "output_dir": "output/nyc_green_data",
+    "keep_column": "Largest Property Use Type",
+    "keep_values": ["Multifamily Housing", "College/University", "Office"],
+    "show_stats": true
+  },
+  "manhattan_only": {
+    "input_file": "Nyc_data.csv",
+    "output_file": "Manhattan_buildings.parquet",
+    "output_dir": "output/nyc_green_data",
+    "compression": "gzip",
+    "keep_column": "City",
+    "keep_values": ["Manhattan"],
+    "primary_column": "Largest Property Use Type",
+    "show_stats": true
+  }
+}
